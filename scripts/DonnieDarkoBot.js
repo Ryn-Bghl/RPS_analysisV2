@@ -171,7 +171,7 @@ const ifEndThenRestart = new MutationObserver(() => {
     isReady = true;
     games.push(game);
     game = [];
-    if (games.length%5 === 0) {
+    if (games.length%stop === 0) {
       console.log(getCsvFormat(games));      
     }
   }
