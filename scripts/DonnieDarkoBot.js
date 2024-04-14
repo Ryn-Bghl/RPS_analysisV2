@@ -32,7 +32,7 @@ class Enemy {
   }
 }
 
-const stop = prompt('at how many games do you wanna stop?')
+const stop = parseInt(prompt('at how many games do you wanna stop?'))
 
 let isReady = true;
 let isEnd = false;
@@ -171,8 +171,11 @@ const ifEndThenRestart = new MutationObserver(() => {
     isReady = true;
     games.push(game);
     game = [];
-    if (games.length%stop === 0) {
-      console.log(getCsvFormat(games));      
+    // if (games.length%stop === 0) {
+    //   console.log(getCsvFormat(games));      
+    // }
+    if (games.length === stop) {
+      downloadContent('data.txt', getCsvFormat(games));
     }
   }
 });
